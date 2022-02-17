@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/madjiebimaa/isyarah/models"
@@ -38,7 +39,7 @@ func main() {
 			return
 		}
 
-		key := "ENV"
+		key := os.Getenv("OPENCAGEDATA_KEY")
 		url := fmt.Sprintf("https://api.opencagedata.com/geocode/v1/json?key=%s&q=%s&pretty=1&no_annotations=1", key, location)
 		resp, _ := http.Get(url)
 
