@@ -1,0 +1,13 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@URL = http://{{host}}/api
+
+### Create location
+POST {{URL}}/locations HTTP/1.1
+Content-Type: application/json
+
+{
+    "location": "ipb university",
+    "description": "i am a student in computer science department"
+}
